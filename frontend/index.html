@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AgentReplay — Time-Travel Debugging for AI Agents</title>
+  <meta name="description" content="Record, replay, branch, and diff AI agent executions. Debug AI reasoning like Git for thought." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/src/styles.css" />
+</head>
+<body>
+  <div id="app">
+    <!-- Header -->
+    <header id="app-header">
+      <div class="header-left">
+        <div class="logo">
+          <span class="logo-icon">⏪</span>
+          <h1>Agent<span class="accent">Replay</span></h1>
+        </div>
+        <span class="tagline">Time-Travel Debugging for AI Agents</span>
+      </div>
+      <div class="header-right">
+        <div id="connection-status" class="status-badge disconnected">
+          <span class="status-dot"></span>
+          <span class="status-text">Disconnected</span>
+        </div>
+        <div id="supermemory-status" class="status-badge">
+          <span class="sm-icon">🧠</span>
+          <span class="status-text">SuperMemory</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Layout -->
+    <main id="main-layout">
+      <!-- Left Panel: Control + Trace List -->
+      <aside id="left-panel">
+        <div id="control-panel"></div>
+        <div id="trace-list-panel"></div>
+      </aside>
+
+      <!-- Center Panel: Timeline -->
+      <section id="center-panel">
+        <div id="timeline-panel"></div>
+      </section>
+
+      <!-- Right Panel: Decision Tree / Diff Viewer -->
+      <aside id="right-panel">
+        <div id="detail-panel"></div>
+      </aside>
+    </main>
+  </div>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
