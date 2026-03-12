@@ -16,12 +16,12 @@ export function renderTimeline(steps, traceId) {
   if (!traceId || steps.length === 0) {
     container.innerHTML = `
       <div class="panel-header">
-        <span class="panel-title">📡 Execution Timeline</span>
+        <span class="panel-title"><i data-lucide="radio" class="inline-icon"></i> Execution Timeline</span>
         <div class="replay-controls-inline" id="replay-controls" style="display:none"></div>
       </div>
       <div class="panel-body timeline-container">
         <div class="timeline-empty">
-          <div class="timeline-empty-icon">⏪</div>
+          <div class="timeline-empty-icon"><i data-lucide="rewind"></i></div>
           <div class="timeline-empty-text">Run an agent or select a trace to view its execution</div>
         </div>
       </div>
@@ -31,15 +31,15 @@ export function renderTimeline(steps, traceId) {
 
   container.innerHTML = `
     <div class="panel-header">
-      <span class="panel-title">📡 Execution Timeline</span>
+      <span class="panel-title"><i data-lucide="radio" class="inline-icon"></i> Execution Timeline</span>
       <span class="panel-title" style="font-size:10px; opacity:0.6">${steps.length} steps</span>
     </div>
     <div class="panel-body timeline-container" id="timeline-body">
       ${steps.map((step, i) => renderStep(step, i, steps.length)).join('')}
     </div>
     <div class="replay-bar">
-      <button class="replay-btn" id="btn-replay" title="Replay">⏪</button>
-      <button class="replay-btn" id="btn-replay-fast" title="Fast Replay (2x)">⏩</button>
+      <button class="replay-btn" id="btn-replay" title="Replay"><i data-lucide="play" class="inline-icon"></i></button>
+      <button class="replay-btn" id="btn-replay-fast" title="Fast Replay (2x)"><i data-lucide="fast-forward" class="inline-icon"></i></button>
       <div class="replay-progress">
         <div class="replay-progress-fill" id="replay-progress-fill"></div>
       </div>
@@ -114,11 +114,11 @@ function renderStep(step, index, total) {
   const isLast = index === total - 1;
   const time = new Date(step.timestamp).toLocaleTimeString();
   const typeLabels = {
-    thought: '💭 Thought',
-    tool_call: '🔧 Tool Call',
-    observation: '👁 Observation',
-    final_answer: '✅ Final Answer',
-    error: '❌ Error',
+    thought: '<i data-lucide="message-square" class="inline-icon-small"></i> Thought',
+    tool_call: '<i data-lucide="wrench" class="inline-icon-small"></i> Tool Call',
+    observation: '<i data-lucide="eye" class="inline-icon-small"></i> Observation',
+    final_answer: '<i data-lucide="check-circle" class="inline-icon-small"></i> Final Answer',
+    error: '<i data-lucide="x-circle" class="inline-icon-small"></i> Error',
   };
 
   let contentHtml = escapeHtml(step.content);
@@ -151,7 +151,7 @@ function renderStep(step, index, total) {
         <div class="step-actions">
           <button class="step-action-btn expand-btn" data-step-id="${step.id}">Expand</button>
           ${type !== 'final_answer' && type !== 'error' ? `
-            <button class="step-action-btn branch-btn" data-step-id="${step.id}">🌿 Branch from here</button>
+            <button class="step-action-btn branch-btn" data-step-id="${step.id}"><i data-lucide="git-branch" class="inline-icon-small"></i> Branch from here</button>
           ` : ''}
         </div>
       </div>
@@ -227,12 +227,12 @@ function showBranchModal(stepId) {
   modal.className = 'branch-modal';
   modal.innerHTML = `
     <div class="branch-modal-content">
-      <h3>🌿 Branch Execution</h3>
+      <h3><i data-lucide="git-branch" class="inline-icon"></i> Branch Execution</h3>
       <p>Fork from this step and re-run with new context. The agent will take a different path based on your correction.</p>
       <textarea id="branch-context" placeholder="Enter new context or correction...&#10;e.g. 'Focus on the security implications instead'&#10;or 'The bug is actually a race condition, not off-by-one'"></textarea>
       <div class="branch-modal-actions">
         <button class="btn-cancel" id="branch-cancel">Cancel</button>
-        <button class="btn-branch" id="branch-confirm">🌿 Branch & Re-run</button>
+        <button class="btn-branch" id="branch-confirm"><i data-lucide="git-branch" class="inline-icon-small"></i> Branch & Re-run</button>
       </div>
     </div>
   `;

@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <script src="https://unpkg.com/lucide@latest"></script>
   <link rel="stylesheet" href="/src/styles.css" />
 </head>
 <body>
@@ -16,7 +17,7 @@
     <header id="app-header">
       <div class="header-left">
         <div class="logo">
-          <span class="logo-icon">⏪</span>
+          <i data-lucide="rewind" class="logo-icon"></i>
           <h1>Agent<span class="accent">Replay</span></h1>
         </div>
         <span class="tagline">Time-Travel Debugging for AI Agents</span>
@@ -27,7 +28,7 @@
           <span class="status-text">Disconnected</span>
         </div>
         <div id="supermemory-status" class="status-badge">
-          <span class="sm-icon">🧠</span>
+          <i data-lucide="brain" class="sm-icon"></i>
           <span class="status-text">SuperMemory</span>
         </div>
       </div>
@@ -54,5 +55,8 @@
   </div>
 
   <script type="module" src="/src/main.js"></script>
+  <script>
+    lucide.createIcons();
+  </script>
 </body>
 </html>

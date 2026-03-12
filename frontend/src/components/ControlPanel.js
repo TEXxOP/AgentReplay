@@ -6,15 +6,15 @@ export function renderControlPanel(container) {
   container.classList.add('panel');
   container.innerHTML = `
     <div class="panel-header">
-      <span class="panel-title">⚡ Launch Agent</span>
+      <span class="panel-title"><i data-lucide="zap" class="inline-icon"></i> Launch Agent</span>
     </div>
     <div class="panel-body">
       <div class="agent-selector">
         <button class="agent-btn active" data-agent="research" id="btn-agent-research">
-          🔍 Research
+          <i data-lucide="search" class="inline-icon"></i> Research
         </button>
         <button class="agent-btn" data-agent="debug" id="btn-agent-debug">
-          🐛 Debug
+          <i data-lucide="bug" class="inline-icon"></i> Debug
         </button>
       </div>
       <textarea
@@ -23,7 +23,7 @@ export function renderControlPanel(container) {
         placeholder="Enter a task for the agent...&#10;e.g. 'Research quantum computing security'&#10;or 'Debug the off_by_one error in find_max'"
       ></textarea>
       <button class="run-btn" id="run-btn">
-        ▶ Run & Record
+        <i data-lucide="play" class="inline-icon"></i> Run & Record
       </button>
     </div>
   `;
@@ -64,6 +64,7 @@ export function renderControlPanel(container) {
     }
 
     btn.disabled = false;
-    btn.innerHTML = '▶ Run & Record';
+    btn.innerHTML = '<i data-lucide="play" class="inline-icon"></i> Run & Record';
+    if (window.lucide) window.lucide.createIcons();
   });
 }

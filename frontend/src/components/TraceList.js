@@ -6,13 +6,13 @@ export function renderTraceList(container, traces, activeTraceId) {
   container.classList.add('panel');
   container.innerHTML = `
     <div class="panel-header">
-      <span class="panel-title">📼 Recorded Traces</span>
+      <span class="panel-title"><i data-lucide="video" class="inline-icon"></i> Recorded Traces</span>
       <span class="panel-title" style="font-size:10px; opacity:0.6">${traces.length || 0}</span>
     </div>
     <div class="panel-body" id="trace-list-body">
       ${traces.length === 0 ? `
         <div class="detail-empty" style="padding: 20px 0">
-          <div class="detail-empty-icon">📼</div>
+          <div class="detail-empty-icon"><i data-lucide="video"></i></div>
           <div style="font-size:11px; color: var(--text-muted)">No traces yet.<br>Run an agent to start recording.</div>
         </div>
       ` : ''}
@@ -43,8 +43,8 @@ function renderTraceItem(trace, activeTraceId) {
   return `
     <div class="trace-item ${isActive ? 'active' : ''}" data-trace-id="${trace.id}">
       <div class="trace-agent">
-        ${trace.agent_name === 'research' ? '🔍' : '🐛'} ${trace.agent_name} agent
-        ${isBranch ? '<span class="trace-branch-badge">🌿 branch</span>' : ''}
+        <i data-lucide="${trace.agent_name === 'research' ? 'search' : 'bug'}" class="inline-icon"></i> ${trace.agent_name} agent
+        ${isBranch ? '<span class="trace-branch-badge"><i data-lucide="git-branch" class="inline-icon-small"></i> branch</span>' : ''}
       </div>
       <div class="trace-task">${escapeHtml(trace.task)}</div>
       <div class="trace-meta">

@@ -9,11 +9,11 @@ export function renderDetailPanel(trace) {
   if (!trace) {
     container.innerHTML = `
       <div class="panel-header">
-        <span class="panel-title">📋 Details</span>
+        <span class="panel-title"><i data-lucide="clipboard-list" class="inline-icon"></i> Details</span>
       </div>
       <div class="panel-body">
         <div class="detail-empty">
-          <div class="detail-empty-icon">🔍</div>
+          <div class="detail-empty-icon"><i data-lucide="search"></i></div>
           <div style="font-size:12px">Select a trace to view details</div>
           <div style="font-size:11px; margin-top:4px; color: var(--text-muted)">
             Run an agent, then click steps<br>to inspect or branch
@@ -28,7 +28,7 @@ export function renderDetailPanel(trace) {
 
   container.innerHTML = `
     <div class="panel-header">
-      <span class="panel-title">📋 Trace Details</span>
+      <span class="panel-title"><i data-lucide="clipboard-list" class="inline-icon"></i> Trace Details</span>
     </div>
     <div class="panel-body" id="detail-body">
       <div style="margin-bottom: 16px;">
@@ -45,7 +45,7 @@ export function renderDetailPanel(trace) {
           AGENT
         </div>
         <div style="font-size: 13px;">
-          ${trace.agent_name === 'research' ? '🔍' : '🐛'} ${trace.agent_name} agent
+          <i data-lucide="${trace.agent_name === 'research' ? 'search' : 'bug'}" class="inline-icon"></i> ${trace.agent_name} agent
         </div>
       </div>
 
@@ -71,13 +71,13 @@ export function renderDetailPanel(trace) {
       ${isBranch ? `
         <div style="margin-bottom: 16px; padding: 10px; background: rgba(251,146,60,0.1); border: 1px solid rgba(251,146,60,0.3); border-radius: 6px;">
           <div style="font-family: var(--font-mono); font-size: 10px; color: var(--accent-orange); margin-bottom: 4px;">
-            🌿 BRANCHED FROM
+            <i data-lucide="git-branch" class="inline-icon-small"></i> BRANCHED FROM
           </div>
           <div style="font-size: 11px; color: var(--text-secondary); font-family: var(--font-mono);">
             ${trace.parent_trace_id.substring(0, 12)}...
           </div>
           <button class="step-action-btn" id="btn-diff-parent" style="margin-top: 8px; width: 100%;">
-            📊 Compare with Original
+            <i data-lucide="bar-chart-2" class="inline-icon-small"></i> Compare with Original
           </button>
         </div>
       ` : ''}
@@ -120,7 +120,7 @@ export function showDiffView(diffResult) {
   let diffHtml = `
     <div style="margin-top: 16px; border-top: 1px solid var(--border); padding-top: 16px;">
       <div style="font-family: var(--font-mono); font-size: 11px; color: var(--text-muted); margin-bottom: 8px;">
-        📊 DIFF COMPARISON
+        <i data-lucide="bar-chart-2" class="inline-icon-small"></i> DIFF COMPARISON
       </div>
       <div class="diff-summary">${escapeHtml(diffResult.summary)}</div>
       <div class="diff-columns">
@@ -134,7 +134,7 @@ export function showDiffView(diffResult) {
 
   for (let i = 0; i < maxLen; i++) {
     if (i === divIdx) {
-      diffHtml += `<div class="divergence-marker">⚡ Divergence Point — Step ${i}</div>`;
+      diffHtml += `<div class="divergence-marker"><i data-lucide="zap" class="inline-icon-small"></i> Divergence Point — Step ${i}</div>`;
     }
 
     const stepA = stepsA[i];
@@ -181,19 +181,19 @@ function renderStepBreakdown(steps) {
     error: 'var(--color-error)',
   };
   const icons = {
-    thought: '💭',
-    tool_call: '🔧',
-    observation: '👁',
-    final_answer: '✅',
-    error: '❌',
+    thought: 'message-square',
+    tool_call: 'wrench',
+    observation: 'eye',
+    final_answer: 'check-circle',
+    error: 'x-circle',
   };
 
   return Object.entries(counts)
     .filter(([_, count]) => count > 0)
     .map(([type, count]) => `
       <div style="display: flex; align-items: center; justify-content: space-between; padding: 4px 0;">
-        <span style="font-size: 12px; color: ${colors[type]}">
-          ${icons[type]} ${type.replace('_', ' ')}
+        <span style="font-size: 12px; color: ${colors[type]}; display: flex; align-items: center; gap: 4px;">
+          <i data-lucide="${icons[type]}" class="inline-icon-small"></i> ${type.replace('_', ' ')}
         </span>
         <span style="font-family: var(--font-mono); font-size: 12px; color: var(--text-secondary);">
           ${count}

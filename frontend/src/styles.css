@@ -107,7 +107,10 @@ html, body {
 }
 
 .logo-icon {
-  font-size: 24px;
+  width: 24px;
+  height: 24px;
+  stroke: var(--accent-bright);
+  stroke-width: 2.5;
   filter: drop-shadow(0 0 8px var(--accent-glow));
 }
 
@@ -172,7 +175,22 @@ html, body {
   50% { opacity: 0.5; }
 }
 
-.sm-icon { font-size: 14px; }
+.sm-icon { width: 16px; height: 16px; stroke-width: 2; margin-right: 2px; }
+
+/* ── SVG Icons ─────────────────────────────────────────── */
+.inline-icon {
+  width: 14px;
+  height: 14px;
+  vertical-align: -2.5px;
+  stroke-width: 2.5;
+}
+
+.inline-icon-small {
+  width: 12px;
+  height: 12px;
+  vertical-align: -1.5px;
+  stroke-width: 2.5;
+}
 
 /* ── Main Layout ───────────────────────────────────────── */
 #main-layout {
