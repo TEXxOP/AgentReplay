@@ -1,4 +1,4 @@
-# ⏪ AgentReplay — Time-Travel Debugging for AI Agents
+# AgentReplay — Time-Travel Debugging for AI Agents
 
 > **Record. Replay. Branch. Debug AI reasoning like Git for thought.**
 
@@ -10,18 +10,18 @@ When AI agents fail at complex multi-step tasks, it's nearly impossible to under
 
 ---
 
-## 🚀 Key Features
+## Key Features
 
-- **🎥 Flight Recorder** — Automatically captures every thought, tool call, observation, and answer from any AI agent
-- **⏪ Time-Travel Replay** — Step through a recorded execution at any speed, like a video debugger
-- **🌿 Branch & Fork** — Click any step to fork execution with new context and see how different decisions lead to different outcomes
-- **📊 Diff Comparison** — Side-by-side comparison showing exactly where two execution paths diverge
-- **🧠 SuperMemory Knowledge Graph** — All traces are stored as interconnected memories for cross-session pattern matching
-- **📡 Real-Time Dashboard** — Live WebSocket streaming shows agent activity as it happens
+- **Flight Recorder** — Automatically captures every thought, tool call, observation, and answer from any AI agent
+- **Time-Travel Replay** — Step through a recorded execution at any speed, like a video debugger
+- **Branch & Fork** — Click any step to fork execution with new context and see how different decisions lead to different outcomes
+- **Diff Comparison** — Side-by-side comparison showing exactly where two execution paths diverge
+- **SuperMemory Knowledge Graph** — All traces are stored as interconnected memories for cross-session pattern matching
+- **Real-Time Dashboard** — Live WebSocket streaming shows agent activity as it happens
 
 ---
 
-## 🏗️ Architecture
+## Architecture
 
 ```
 ┌─────────────────────────────────────────────────┐
@@ -52,7 +52,7 @@ When AI agents fail at complex multi-step tasks, it's nearly impossible to under
 
 ---
 
-## 📋 How It Works
+## How It Works
 
 1. **Run an Agent** — Select a demo agent (Research or Debug) and provide a task
 2. **Watch Live** — The execution timeline streams each step in real-time
@@ -62,7 +62,7 @@ When AI agents fail at complex multi-step tasks, it's nearly impossible to under
 
 ---
 
-## 🛠️ Setup & Run
+## Setup & Run
 
 ### Prerequisites
 - Python 3.11+
@@ -104,7 +104,7 @@ Open **http://localhost:3000** in your browser.
 
 ---
 
-## 🧠 SuperMemory Integration
+## SuperMemory Integration
 
 AgentReplay uses SuperMemory's Knowledge Graph as the persistence layer for execution traces:
 
@@ -121,21 +121,21 @@ This enables:
 
 ---
 
-## 🎯 Demo Agents
+## Demo Agents
 
-### 🔍 Research Agent
+### Research Agent
 Searches the web, reads pages, and synthesizes answers. Uses Gemini for real AI reasoning with simulated web tools for reliable demos.
 
 **Try:** *"Research quantum computing applications in security"*
 
-### 🐛 Debug Agent
+### Debug Agent
 Analyzes buggy code, identifies issues, proposes fixes, and verifies them. Includes pre-built bug scenarios (off-by-one, null reference, race condition).
 
 **Try:** *"Debug the off_by_one error in the find_max function"*
 
 ---
 
-## 🏆 Why This Project is Unique
+## Why This Project is Unique
 
 1. **Creates a new category** — No one is building debugging infrastructure for AI agents
 2. **SuperMemory is core to the product** — The knowledge graph IS the execution trace
@@ -144,7 +144,7 @@ Analyzes buggy code, identifies issues, proposes fixes, and verifies them. Inclu
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 agentreplay/
@@ -177,7 +177,7 @@ agentreplay/
 
 ---
 
-## 🔧 Tech Stack
+## Tech Stack
 
 | Layer | Technology |
 |-------|-----------|
@@ -190,7 +190,7 @@ agentreplay/
 
 ---
 
-## 📝 Theme
+## Theme
 
 **Agentic AI** — Autonomous AI systems that can plan, reason, and execute tasks with minimal human intervention.
 
@@ -198,7 +198,7 @@ AgentReplay enables observability and debugging for these autonomous systems —
 
 ---
 
-## 📄 License
+## License
 
 MIT License — Feel free to use, modify, and distribute.
 
