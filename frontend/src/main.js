@@ -26,7 +26,8 @@ window.__state = state; // Expose for components
 
 function connectWebSocket() {
   const protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  const wsUrl = `${protocol}://${location.hostname}:8000/ws`;
+  const wsBaseUrl = import.meta.env.VITE_API_URL ? import.meta.env.VITE_API_URL.replace(/^http/, 'ws') : `${protocol}://${location.hostname}:8000`;
+  const wsUrl = `${wsBaseUrl}/ws`;
 
   state.ws = new WebSocket(wsUrl);
 
@@ -125,7 +126,8 @@ async function api(method, path, body = null) {
   };
   if (body) opts.body = JSON.stringify(body);
 
-  const res = await fetch(`http://${location.hostname}:8000${path}`, opts);
+  const baseUrl = import.meta.env.VITE_API_URL || `http://${location.hostname}:8000`;
+  const res = await fetch(`${baseUrl}${path}`, opts);
   if (!res.ok) {
     const err = await res.text();
     throw new Error(err);
